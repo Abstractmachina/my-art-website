@@ -1,17 +1,19 @@
 "use client";
 
+import useBreakpoint from "use-breakpoint";
+import MainLogo from "./MainLogo";
+import NavMenu from "./nav-menu";
+import BREAKPOINTS from "@/BREAKPOINTS";
+
 const Header = () => {
+  const { breakpoint } = useBreakpoint(BREAKPOINTS);
+
   return (
-    <header className="flex">
-      <span className="bg-blue-100">taole chen</span>
-        <ul className="flex flex-row gap-2 w-full bg-red-100 text-lg">
-          <li>Work</li>
-          <li>Blog</li>
-          <li>About</li>
-          <li>Prints</li>
-        </ul>
+    <header className="flex justify-center md:justify-between items-center w-full h-40">
+      <MainLogo />
+      <NavMenu className="max-md:hidden" variant={breakpoint === "mobile" ? "mobile" : undefined}/>
     </header>
-  )
-}
+  );
+};
 
 export default Header;
