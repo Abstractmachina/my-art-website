@@ -29,7 +29,7 @@ const NavMenu = ({ className, variant }: Props) => {
       <NavLink href="/">Work</NavLink>
       <NavLink href="/blog">Blog</NavLink>
       <NavLink href="/about">About</NavLink>
-      <NavLink href="/prints">Prints</NavLink>
+      <NavLink href="https://www.inprnt.com/gallery/taole.chen/" external>Prints</NavLink>
     </ul>
   );
 };

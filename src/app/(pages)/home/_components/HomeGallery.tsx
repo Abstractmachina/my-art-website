@@ -1,5 +1,5 @@
 import { Artwork } from "@/types/payload-types";
-import PreviewCard from "./preview-card";
+import PreviewCard from "../../../components/preview-card";
 
 type Props = {
   artWork?: Artwork[] | null;
@@ -10,7 +10,7 @@ const HomeGallery = ({ artWork }: Props) => {
 
 
   return (
-    <section className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-1 w-full">
+    <section className="columns-3xs gap-4 w-full">
       {
         artWork?.map((aw) => {
           return (

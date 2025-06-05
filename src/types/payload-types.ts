@@ -111,10 +111,14 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    about: About;
+    graphics: Graphic;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
+    graphics: GraphicsSelect<false> | GraphicsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -156,13 +160,14 @@ export interface UserAuthOperations {
 export interface Artwork {
   id: string;
   slug: string;
-  images: (string | Media)[];
   title: string;
+  images: (string | Media)[];
+  description?: string | null;
   medium?: string | null;
   dimensions?: string | null;
-  description?: string | null;
   date?: string | null;
   tags?: (string | ArtTag)[] | null;
+  salesLink?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1007,13 +1012,14 @@ export interface PayloadMigration {
  */
 export interface ArtworkSelect<T extends boolean = true> {
   slug?: T;
-  images?: T;
   title?: T;
+  images?: T;
+  description?: T;
   medium?: T;
   dimensions?: T;
-  description?: T;
   date?: T;
   tags?: T;
+  salesLink?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1584,6 +1590,33 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: string;
+  intro?: string | null;
+  main?: string | null;
+  image?: (string | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "graphics".
+ */
+export interface Graphic {
+  id: string;
+  logos?:
+    | {
+        logo?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1622,6 +1655,33 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  intro?: T;
+  main?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "graphics_select".
+ */
+export interface GraphicsSelect<T extends boolean = true> {
+  logos?:
+    | T
+    | {
+        logo?: T;
         id?: T;
       };
   updatedAt?: T;

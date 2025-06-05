@@ -17,7 +17,7 @@ const ArtworkDisplay = ({ artwork }: Props) => {
         <MainImage image={ images? images[0] : undefined  } />
       </div>
 
-      <ImageGallery images={ images } />
+      <ImageGallery images={ images?.splice(1) } />
     </main>
   )
 }

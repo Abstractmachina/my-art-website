@@ -1,10 +1,13 @@
+import { twMerge } from "tailwind-merge";
+
 type Props = {
   children?: React.ReactNode;
+  className?: string;
 }
 
-const Gutter = ({children}:Props) => {
+const Gutter = ({children, className}:Props) => {
   return (
-    <div className="sm:px-16">{children}</div>
+    <div className={twMerge("sm:px-16 lg:px-40", className)}>{children}</div>
   )
 }
 
