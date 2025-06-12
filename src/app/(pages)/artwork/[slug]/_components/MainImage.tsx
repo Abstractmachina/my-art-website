@@ -13,8 +13,6 @@ const MainImage = ({ image }: Props) => {
         alt={image?.alt || ""}
         width={image?.width || 0}
         height={image?.height || 0}
-        layout="responsive"
-        objectFit="cover"
       />
     </div>
   );

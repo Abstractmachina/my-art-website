@@ -1,11 +1,10 @@
-import Gutter from "@/app/components/Gutter";
+import Gutter from "@/app/components/layout/Gutter";
 import P from "@/app/components/styledComponents/P";
 import { fetchAbout } from "@/lib/fetchers/aboutFetchers";
 import Image from "next/image";
 
-type Props = {};
 
-const page = async (props: Props) => {
+const page = async () => {
   const about = await fetchAbout();
   const img = typeof about?.image !== "string" ? about?.image : null;
 
@@ -19,8 +18,6 @@ const page = async (props: Props) => {
             alt={img?.alt || ""}
             width={img?.width || 0}
             height={img?.height || 0}
-            layout="responsive"
-            objectFit="cover"
           />
         </div>
         <section className="flex flex-col gap-4 px-4 md:px-0">

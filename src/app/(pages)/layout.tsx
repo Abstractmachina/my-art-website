@@ -1,9 +1,9 @@
 import { fetchLogos } from "@/lib/fetchers/graphicsFetchers";
 import Footer from "../components/globals/Footer";
-import Header from "../components/Header";
 import DotGrid from "../components/styledComponents/DotGrid";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import Header from "../components/globals/Header";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,8 +16,6 @@ type Props = {
 
 const RootLayout = async ({ children }: Props) => {
   const logos = await fetchLogos();
-
-  console.log("logos: ", logos);
 
   return (
     <html className={`${montserrat.className}`} lang="en">

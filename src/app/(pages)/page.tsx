@@ -1,4 +1,4 @@
-import Gutter from "../components/Gutter";
+import Gutter from "../components/layout/Gutter";
 import HomeGallery from "./home/_components/HomeGallery";
 import { fetchArtworks } from "@/lib/fetchers/artworkFetchers";
 

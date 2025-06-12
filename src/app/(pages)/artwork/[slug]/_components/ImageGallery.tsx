@@ -10,7 +10,7 @@ const ImageGallery = ({ images }: Props) => {
   return (
     <section>
       <div className="flex flex-col md:flex-row gap-4 w-full">
-        <P className="w-80" variant="description">More images</P>
+        <P className="w-80 shrink-0" variant="description">More images</P>
 
         <div className="flex flex-col gap-2">
           {images?.map((img) => (
@@ -20,7 +20,6 @@ const ImageGallery = ({ images }: Props) => {
               alt={img.alt || ""}
               width={img.width || 0}
               height={img.height || 0}
-              layout="responsive"
               objectFit="cover"
             />
           ))}

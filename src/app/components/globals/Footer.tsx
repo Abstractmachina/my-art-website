@@ -1,5 +1,5 @@
 import { Instagram } from "lucide-react";
-import Gutter from "../Gutter";
+import Gutter from "../layout/Gutter";
 import { Separator } from "../shadcn/ui/separator";
 import { twMerge } from "tailwind-merge";
 

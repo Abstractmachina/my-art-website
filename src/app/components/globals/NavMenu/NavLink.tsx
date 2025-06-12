@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "../shadcn/button";
+import { Button } from "../../shadcn/button";
 
 type Props = {
   children?: React.ReactNode;

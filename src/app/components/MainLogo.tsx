@@ -22,7 +22,6 @@ const MainLogo = ({ image, className }: Props) => {
             alt={image.alt || ""}
             width={image.width || 0}
             height={image.height || 0}
-            objectFit="cover"
           />
         </div>
       ) : (

@@ -2,7 +2,6 @@ import { Logos } from "@/types/extracted-payload-types";
 
 export async function fetchLogos() {
   try {
-      console.log("fetching graphics");
       const res = await fetch(
         `${process.env.BACKEND_URL}/api/globals/graphics`,
         {
@@ -22,7 +21,6 @@ export async function fetchLogos() {
       }
   
     const data = await res.json();
-    console.log("data", data);
       return data["logos"] as Logos;
   
     } catch (error) {

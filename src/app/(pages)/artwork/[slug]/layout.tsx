@@ -1,4 +1,4 @@
-import Gutter from "@/app/components/Gutter";
+import Gutter from "@/app/components/layout/Gutter";
 
 type Props = {
   children: React.ReactNode;

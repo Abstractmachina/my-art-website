@@ -9,7 +9,7 @@ type Props = {
 
 const InfoPanel = ({ artwork }: Props) => {
   return (
-    <div className="flex flex-col gap-2 md:w-80">
+    <div className="flex flex-col gap-2 md:w-80 shrink-0">
       <H3 className="font-light">{artwork?.title}</H3>
       <P variant="description">{artwork?.medium}</P>
       <P variant="description">{artwork?.dimensions}</P>
