@@ -4,14 +4,15 @@ export async function fetchAbout() : Promise<About | null> {
   try {
 
     const res = await fetch(
-      `${process.env.BACKEND_URL}/api/globals/about`,
+      `${process.env.BACKEND_URL}/api/globals/artSiteSettings`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `users API-Key ${process.env.PAYLOAD_API_KEY}`,
         },
         next: {
-          tags:["about"],
+          tags:["artSiteSettings"],
         },
         cache: "force-cache",
       }, 
@@ -22,8 +23,7 @@ export async function fetchAbout() : Promise<About | null> {
     }
 
     const data = await res.json();
-    console.log("data", data);
-    return data as About;
+    return data["aboutMe"] as About;
 
   } catch (error) {
     console.error(error);

@@ -3,14 +3,15 @@ import { Logos } from "@/types/extracted-payload-types";
 export async function fetchLogos() {
   try {
       const res = await fetch(
-        `${process.env.BACKEND_URL}/api/globals/graphics`,
+        `${process.env.BACKEND_URL}/api/globals/artSiteSettings`,
         {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `users API-Key ${process.env.PAYLOAD_API_KEY}`,
           },
           next: {
-            tags:["graphics"],
+            tags:["artSiteSettings"],
           },
           cache: "force-cache",
         }, 

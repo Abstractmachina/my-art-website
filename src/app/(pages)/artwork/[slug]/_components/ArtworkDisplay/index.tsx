@@ -16,16 +16,22 @@ const ArtworkDisplay = ({ artwork }: Props) => {
     <main className="flex flex-col relative">
 
       <Gutter >
-        <div className="flex flex-col md:flex-row gap-4 w-full py-4 pl-8">
+        {/* desktop */}
+        <div className="flex gap-4 w-full py-4 px-4 max-lg:hidden">
           <InfoPanel artwork={artwork}/>
           <MainImage image={ images? images[0] : undefined  } />
+        </div>
+        {/* mobile */}
+        <div className="flex flex-col lg:flex-row gap-4 w-full lg:hidden">
+          <MainImage image={ images? images[0] : undefined  } />
+          <InfoPanel artwork={artwork}/>
         </div>
       </Gutter>
 
       <Line orientation="horizontal"/>
 
       <Gutter>
-        <ImageGallery images={ images?.splice(1) } className="pl-8 pt-4"/>
+        <ImageGallery images={ images?.splice(1) } className="pt-4"/>
       </Gutter>
     </main>
   )
