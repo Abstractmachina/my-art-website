@@ -8,6 +8,8 @@ type Props = {
 export async function generateStaticParams() {
   const posts = await fetchBlogPosts();
 
+  if (!posts || posts.length === 0) return [];
+  
   return posts?.map(p => ({
     slug: p.slug
   }));
