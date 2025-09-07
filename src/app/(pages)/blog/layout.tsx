@@ -2,7 +2,8 @@ type Props = {
   children: React.ReactNode;
 }
 
-const BlogLayout = ({children}:Props) => {
+const BlogLayout = ({ children }: Props) => {
+  
   return (
     <>{children}</>
   )
