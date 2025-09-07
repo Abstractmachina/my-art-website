@@ -1,15 +1,15 @@
 import Gutter from "@/app/components/layout/Gutter";
 import { fetchBlogPosts } from "@/lib/fetchers/BlogPostFetchers";
+import BlogPostGallery from "./_components/BlogPostGallery";
 
-type Props = {
-}
 
-const BlogPage = async (props: Props) => {
+
+const BlogPage = async () => {
   const blogPosts = await fetchBlogPosts();
 
   return (
     <Gutter>
-      asdf
+          <BlogPostGallery posts={blogPosts} />
     </Gutter>
   )
 }
