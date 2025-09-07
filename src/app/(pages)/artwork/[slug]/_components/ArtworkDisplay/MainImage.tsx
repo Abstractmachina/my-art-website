@@ -13,6 +13,7 @@ const MainImage = ({ image }: Props) => {
         alt={image?.alt || ""}
         width={image?.width || 0}
         height={image?.height || 0}
+        className="shadow-sm border border-zinc-100"
       />
     </div>
   );

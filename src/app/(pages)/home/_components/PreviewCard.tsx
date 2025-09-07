@@ -18,7 +18,7 @@ const PreviewCard = ({ artwork }: Props) => {
       </div>
 
       <Image
-        className="mb-4"
+        className="mb-4 border border-zinc-100 shadow-sm"
         src={coverImage?.url || "#"}
         alt={coverImage?.alt || ""}
         width={coverImage?.width || 0}

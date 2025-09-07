@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/tailwind/cn";
 
 type Props = {
   children?: React.ReactNode;
@@ -7,7 +7,7 @@ type Props = {
 
 const Gutter = ({children, className}:Props) => {
   return (
-    <div className={twMerge("px-4 sm:px-16 lg:px-40", className)}>{children}</div>
+    <div className={cn("gutter px-4 sm:px-16 lg:px-40", className)}>{children}</div>
   )
 }
 

@@ -4,6 +4,7 @@ import DotGrid from "../components/styledComponents/DotGrid";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import Header from "../components/globals/Header";
+import DashedGutterOverlay from "./home/_components/DashedGutterOverlay";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,9 +27,10 @@ const RootLayout = async ({ children }: Props) => {
 
       <body>
         <DotGrid />
-        <Header logo={ logos && logos[0]?.logo } />
+        <Header logo={logos && logos[0]?.logo} />
         {children}
         <Footer />
+        <DashedGutterOverlay />
       </body>
     </html>
   );

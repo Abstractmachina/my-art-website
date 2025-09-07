@@ -1,4 +1,4 @@
-import Gutter from "@/app/components/layout/Gutter";
+// import Gutter from "@/app/components/layout/Gutter";
 
 type Props = {
   children: React.ReactNode;
@@ -8,9 +8,12 @@ type Props = {
 
 const ArtworkLayout = ({children}:Props) => {
   return (
-    <Gutter>
+    <>
       {children}
-    </Gutter>
+    </>
+    // <Gutter>
+    //   {children}
+    // </Gutter>
   )
 }
 
