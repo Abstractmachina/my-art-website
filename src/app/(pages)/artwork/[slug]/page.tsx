@@ -5,8 +5,11 @@ type Props = {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams() : Promise<{slug: string}[]>  {
   const artworks = await fetchArtworks();
+
+
+  if (!artworks || artworks.length === 0) return [];
 
   return artworks?.map(aw => ({
     slug: aw.slug
