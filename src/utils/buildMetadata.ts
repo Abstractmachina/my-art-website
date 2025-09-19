@@ -1,6 +1,6 @@
 // import { MetadataFieldGroup } from "@/types/payload-types";
-import { Author, ReferrerEnum } from "next/dist/lib/metadata/types/metadata-types";
-import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
+// import { Author, ReferrerEnum } from "next/dist/lib/metadata/types/metadata-types";
+// import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 
 // export function buildMetadata(
 //   input?: MetadataFieldGroup,
