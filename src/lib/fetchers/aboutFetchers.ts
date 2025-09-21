@@ -1,4 +1,4 @@
-import { About } from "@/types/payload-types";
+import { About } from "@/types/extracted-payload-types";
 
 export async function fetchAbout() : Promise<About | null> {
   try {
