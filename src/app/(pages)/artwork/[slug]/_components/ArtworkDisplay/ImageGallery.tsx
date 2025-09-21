@@ -10,10 +10,10 @@ type Props = {
 
 const ImageGallery = ({ images,className }: Props) => {
   return (
-    <section className={cn("flex flex-col lg:flex-row gap-4 w-full", className)}>
-        <P className="min-w-80 w-80 shrink-0 px-4" variant="description">More images</P>
+    <section className={cn("flex flex-col lg:flex-row gap-4 w-full px-4", className)}>
+        <P className="min-w-80 w-80 shrink-0" variant="description">More images</P>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full">
           {images?.map((img) => (
             <Image
               key={img.id}
@@ -22,7 +22,7 @@ const ImageGallery = ({ images,className }: Props) => {
               width={img.width || 0}
               height={img.height || 0}
               objectFit="cover"
-              className=" border border-gray-100 shadow-sm"
+              className=" border border-gray-100 shadow-sm w-full"
             />
           ))}
         </div>

@@ -11,7 +11,7 @@ type Props = {
 const InfoPanel = ({ artwork }: Props) => {
   return (
     <div className={cn(
-      "flex gap-4 shrink-0 w-full justify-between p-4",
+      "flex gap-4 shrink-0 w-full justify-between",
       "",
       "lg:flex-col lg:w-80"
     )}>

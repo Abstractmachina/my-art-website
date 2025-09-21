@@ -115,16 +115,16 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
-    about: About;
-    graphics: Graphic;
     artSiteSettings: ArtSiteSetting;
+    artMetadata: ArtMetadatum;
+    budget: Budget;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
-    about: AboutSelect<false> | AboutSelect<true>;
-    graphics: GraphicsSelect<false> | GraphicsSelect<true>;
     artSiteSettings: ArtSiteSettingsSelect<false> | ArtSiteSettingsSelect<true>;
+    artMetadata: ArtMetadataSelect<false> | ArtMetadataSelect<true>;
+    budget: BudgetSelect<false> | BudgetSelect<true>;
   };
   locale: null;
   user: User & {
@@ -176,6 +176,14 @@ export interface Artwork {
   salesLink?: string | null;
   originalForSale?: boolean | null;
   originalSold?: boolean | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -781,20 +789,17 @@ export interface Form {
 export interface Expense {
   id: string;
   amount?: number | null;
-  category?:
-    | (
-        | 'food'
-        | 'shelter'
-        | 'transport'
-        | 'health'
-        | 'fitness'
-        | 'education'
-        | 'business'
-        | 'taxes'
-        | 'wife'
-        | 'non-essential'
-      )
-    | null;
+  category:
+    | 'food'
+    | 'shelter'
+    | 'transport'
+    | 'health'
+    | 'fitness'
+    | 'education'
+    | 'business'
+    | 'taxes'
+    | 'wife'
+    | 'non-essential';
   tag?: (string | null) | ExpenseTag;
   comment?: string | null;
   date: string;
@@ -1119,6 +1124,13 @@ export interface ArtworkSelect<T extends boolean = true> {
   salesLink?: T;
   originalForSale?: T;
   originalSold?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1728,33 +1740,6 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "about".
- */
-export interface About {
-  id: string;
-  intro?: string | null;
-  main?: string | null;
-  image?: (string | null) | Media;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "graphics".
- */
-export interface Graphic {
-  id: string;
-  logos?:
-    | {
-        logo?: (string | null) | Media;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "artSiteSettings".
  */
 export interface ArtSiteSetting {
@@ -1771,6 +1756,62 @@ export interface ArtSiteSetting {
     main?: string | null;
     image?: (string | null) | Media;
   };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artMetadata".
+ */
+export interface ArtMetadatum {
+  id: string;
+  home?: {
+    title?: string | null;
+    description?: string | null;
+    creator?: string | null;
+    publisher?: string | null;
+    generator?: string | null;
+    referrer?: string | null;
+    authors?:
+      | {
+          name?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    keywords?:
+      | {
+          keyword?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    formatDetection?: {
+      telephone?: boolean | null;
+      email?: boolean | null;
+      address?: boolean | null;
+    };
+    openGraph?: {
+      title?: string | null;
+      description?: string | null;
+      url?: string | null;
+      siteName?: string | null;
+      locale?: string | null;
+      type?: string | null;
+      publishedTime?: string | null;
+      images?: (string | Media)[] | null;
+      videos?: (string | Media)[] | null;
+      audio?: (string | Media)[] | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "budget".
+ */
+export interface Budget {
+  id: string;
+  budget: number;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1822,33 +1863,6 @@ export interface FooterSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "about_select".
- */
-export interface AboutSelect<T extends boolean = true> {
-  intro?: T;
-  main?: T;
-  image?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "graphics_select".
- */
-export interface GraphicsSelect<T extends boolean = true> {
-  logos?:
-    | T
-    | {
-        logo?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "artSiteSettings_select".
  */
 export interface ArtSiteSettingsSelect<T extends boolean = true> {
@@ -1866,6 +1880,68 @@ export interface ArtSiteSettingsSelect<T extends boolean = true> {
         main?: T;
         image?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artMetadata_select".
+ */
+export interface ArtMetadataSelect<T extends boolean = true> {
+  home?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        creator?: T;
+        publisher?: T;
+        generator?: T;
+        referrer?: T;
+        authors?:
+          | T
+          | {
+              name?: T;
+              id?: T;
+            };
+        keywords?:
+          | T
+          | {
+              keyword?: T;
+              id?: T;
+            };
+        formatDetection?:
+          | T
+          | {
+              telephone?: T;
+              email?: T;
+              address?: T;
+            };
+        openGraph?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              url?: T;
+              siteName?: T;
+              locale?: T;
+              type?: T;
+              publishedTime?: T;
+              images?: T;
+              videos?: T;
+              audio?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "budget_select".
+ */
+export interface BudgetSelect<T extends boolean = true> {
+  budget?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

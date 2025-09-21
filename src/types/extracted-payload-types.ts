@@ -1,3 +1,3 @@
-import { Graphic } from "./payload-types";
+import { ArtSiteSetting } from "./payload-types";
 
-export type Logos = Extract<NonNullable<Graphic["logos"]>, object>;
+export type Logos = Extract<NonNullable<ArtSiteSetting["logos"]>, object>;

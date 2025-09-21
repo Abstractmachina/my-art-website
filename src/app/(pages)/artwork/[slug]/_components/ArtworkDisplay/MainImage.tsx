@@ -9,13 +9,13 @@ type Props = {
 
 const MainImage = ({ image, className }: Props) => {
   return (
-    <div className={cn("", className)}>
+    <div className={cn("w-full", className)}>
       <Image
         src={image?.url || ""}
         alt={image?.alt || ""}
         width={image?.width || 0}
         height={image?.height || 0}
-        className="shadow-sm border border-zinc-100 basis-1/2"
+        className="shadow-sm border border-zinc-100 basis-1/2 w-full"
       />
     </div>
   );
