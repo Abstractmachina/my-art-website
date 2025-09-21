@@ -16,6 +16,7 @@ export async function fetchArtworks(depth?: number) : Promise<Artwork[] | null> 
         // sort: "-createdAt",
         depth: depth || 0,
         limit: 0,
+        pagination: false,
       },
       { addQueryPrefix: true }
     );
