@@ -2,13 +2,11 @@ import { fetchArtworkBySlug } from "@/lib/fetchers/artworkFetchers";
 
 type Props = {
   children: React.ReactNode;
-    params: {
-    slug: string;
-  };
+    params: Promise<{ slug: string }>;
 }
 
 export const generateMetadata = async ({ params }: Props) => {
-  const {slug} = params;
+  const {slug} = await params;
 
   const project = await fetchArtworkBySlug(slug, 2);
 
