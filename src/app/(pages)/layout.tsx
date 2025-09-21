@@ -2,6 +2,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import Footer from "../components/globals/Footer";
 import Header from "../components/globals/Header";
 import DotGrid from "../components/styledComponents/DotGrid";
@@ -88,6 +89,7 @@ const RootLayout = async ({ children }: Props) => {
         <Footer />
         <DashedGutterOverlay />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
